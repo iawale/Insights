@@ -66,6 +66,12 @@
         android:layout_gravity="right"
         tools:text="Feb 21, 2017" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        />
+
 
 
 </LinearLayout>
