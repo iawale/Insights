@@ -3,6 +3,7 @@ package com.chiragawale.folinsight.loader;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
+import android.util.Log;
 
 import com.chiragawale.folinsight.keys.GlobalVar;
 import com.chiragawale.folinsight.keys.Keys_Access;
@@ -38,6 +39,10 @@ public class UserLoader extends AsyncTaskLoader<List<Users>> {
 
     @Override
     public List<Users> loadInBackground() {
+        if(GlobalVar.userDao.getUserList().size()!=0){
+
+            return GlobalVar.userDao.getUserList();
+        }
         //Returns List of recent-self posted media Ids
         List<String> userRecentMediaIdList = RecentMediaUtil.fetechRecentMediaIdList(GlobalVar.getRecentMediaUrl());
 

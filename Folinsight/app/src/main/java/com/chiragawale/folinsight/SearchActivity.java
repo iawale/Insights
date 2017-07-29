@@ -7,13 +7,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.chiragawale.folinsight.adapter.UserAdapter;
 import com.chiragawale.folinsight.adapter.UserAdapterRV;
 import com.chiragawale.folinsight.entity.Users;
 import com.chiragawale.folinsight.keys.GlobalVar;

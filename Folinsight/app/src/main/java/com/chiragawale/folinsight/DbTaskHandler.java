@@ -158,11 +158,11 @@ public class DbTaskHandler extends AppCompatActivity implements LoaderManager.Lo
                     int stranger_l_count = total_likes - (follower_l_count + follows_l_count);
                     int stranger_c_count = total_comments - (follower_c_count + follows_c_count);
                     String dateString = cursor.getString(cursor.getColumnIndex(InsightContract.InsightEntry.COLUMN_UPDATED_DATE));
-                    Log.e("FROM DB", dateString + "+++++++++++++ASDASDSD+ASD+SD+AS+DAS+D+");
+
                     if (total_posts == 0) {
                         total_posts++;
                     }
-                    Log.e("Posts",(double) total_likes / total_posts +"");
+
 
                     Details_ig data_object;
                     data_object = new Details_ig(GlobalVar.POSTS_CODE, (double) total_likes / total_posts, (double) total_comments / total_posts);
@@ -219,15 +219,13 @@ public class DbTaskHandler extends AppCompatActivity implements LoaderManager.Lo
             cursor.moveToFirst();
 
             while (cursor.isAfterLast() == false) {
-                Log.e("check loop ", "========================================");
+
                 recordIDDB = cursor.getInt(cursor.getColumnIndex(InsightContract.InsightEntry._ID));
                 int recordUserId = cursor.getInt(cursor.getColumnIndex(InsightContract.InsightEntry.USER_ID));
-                Log.e("C_USERID", currentUserId + "+=======================================");
-                Log.e("R_USERID", recordUserId + "+=======================================");
                 String dateString = cursor.getString(cursor.getColumnIndex(InsightContract.InsightEntry.COLUMN_UPDATED_DATE));
-                Log.e("Current", currentDate.getTime() + "+++++++++++++ASDASDSD+ASD+SD+AS+DAS+D+");
+
                 recordDate.setTimeInMillis(Long.valueOf(dateString));
-                Log.e("FROM DB", recordDate.getTime().toString() + "+++++++++++++ASDASDSD+ASD+SD+AS+DAS+D+");
+
                 int recordDay = recordDate.get(Calendar.DAY_OF_MONTH);
                 int recordMonth = recordDate.get(Calendar.MONTH);
                 int recordYear = recordDate.get(Calendar.YEAR);

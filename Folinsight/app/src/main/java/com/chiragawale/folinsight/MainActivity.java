@@ -159,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     GlobalVar.mediaDao.resetValues();
                     //Kicks Off the Loader
                     getLoaderManager().restartLoader(0,null,this);
-                    Log.e("Refresh", "====================================================");
                 } else {
                     // Otherwise, display error
                     Toast.makeText(this, "No network connection.", Toast.LENGTH_SHORT).show();
@@ -189,6 +188,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }else {
             Toast.makeText(this, "Load complete", Toast.LENGTH_SHORT).show();
         }
+        GlobalVar.userDao.clearUserList();
         //Set up lists with fresh data
         GlobalVar.userDao.setUpUserLists(data);
         // Set total follower mutual and follows values
@@ -209,8 +209,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     //Onloader Reset
     @Override
     public void onLoaderReset(android.content.Loader<List<Users>> loader) {
-        Log.e("Loader r main","==========================================================");
-
     }
 
 

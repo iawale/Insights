@@ -17,7 +17,6 @@ import android.widget.RelativeLayout;
 import com.chiragawale.folinsight.adapter.UserAdapterRV;
 import com.chiragawale.folinsight.keys.GlobalVar;
 import com.chiragawale.folinsight.R;
-import com.chiragawale.folinsight.adapter.UserAdapter;
 import com.chiragawale.folinsight.entity.Users;
 import com.chiragawale.folinsight.loader.UserLoaderLocal;
 
@@ -72,6 +71,7 @@ public class FollowedByFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onResume() {
+        Log.e("Loader restart", "===================================================");
         getLoaderManager().restartLoader(FOLLOWER_LOADER_ID,null,this);
         super.onResume();
     }
@@ -79,6 +79,7 @@ public class FollowedByFragment extends Fragment implements LoaderManager.Loader
     //When the loader is done loading the data
     @Override
     public void onLoadFinished(Loader<List<Users>> loader, List<Users> data) {
+        Log.e("Load finsihed", "===================================================");
         mUserAdapter = new UserAdapterRV(data.size(),data);
         mUserList.setAdapter(mUserAdapter);
         progressBar.setVisibility(View.INVISIBLE);
@@ -91,6 +92,7 @@ public class FollowedByFragment extends Fragment implements LoaderManager.Loader
     //When the loader is reset
     @Override
     public void onLoaderReset(Loader<List<Users>> loader) {
+        Log.e("Loader reset", "===================================================");
         mUserAdapter = new UserAdapterRV(0, null);
         mUserList.setAdapter(mUserAdapter);
     }

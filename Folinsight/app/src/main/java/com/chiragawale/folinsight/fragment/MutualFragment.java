@@ -1,7 +1,5 @@
 package com.chiragawale.folinsight.fragment;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -12,19 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.chiragawale.folinsight.adapter.UserAdapterRV;
 import com.chiragawale.folinsight.keys.GlobalVar;
 import com.chiragawale.folinsight.R;
-import com.chiragawale.folinsight.adapter.UserAdapter;
 import com.chiragawale.folinsight.entity.Users;
 import com.chiragawale.folinsight.loader.UserLoaderLocal;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -90,11 +84,13 @@ public class MutualFragment extends Fragment implements LoaderManager.LoaderCall
             mUserList.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
         }
+        Log.e("DATA SIZE",data.size() + "===================================================");
     }
 
     //When the loader is reset
     @Override
     public void onLoaderReset(Loader<List<Users>> loader) {
+        Log.e("loader Reset","===================================================");
         mUserAdapter = new UserAdapterRV(0, null);
         mUserList.setAdapter(mUserAdapter);
     }
