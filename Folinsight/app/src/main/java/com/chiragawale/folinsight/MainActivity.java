@@ -26,6 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.chiragawale.folinsight.adapter.SimpleFragmentPagerAdapter;
+import com.chiragawale.folinsight.adapter.UserAdapterRV;
 import com.chiragawale.folinsight.entity.Users;
 import com.chiragawale.folinsight.fragment.MutualFragment;
 import com.chiragawale.folinsight.fragment.OverviewFragment;
@@ -210,7 +211,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(android.content.Loader<List<Users>> loader) {
     }
-
 
 
 

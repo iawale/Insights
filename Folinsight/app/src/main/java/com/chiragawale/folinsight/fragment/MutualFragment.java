@@ -1,5 +1,7 @@
 package com.chiragawale.folinsight.fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -25,7 +27,7 @@ import java.util.List;
  * Created by chira on 7/13/2017.
  */
 
-public class MutualFragment extends Fragment implements LoaderManager.LoaderCallbacks <List<Users>>{
+public class MutualFragment extends Fragment implements LoaderManager.LoaderCallbacks <List<Users>>, UserAdapterRV.UserAdapterOnClickHandler{
     //Adapter for providing data to the list view
     private UserAdapterRV mUserAdapter;
 
@@ -50,7 +52,7 @@ public class MutualFragment extends Fragment implements LoaderManager.LoaderCall
         //Improves performance
         mUserList.setHasFixedSize(true);
         //initializes the adapter with empty list
-        mUserAdapter = new UserAdapterRV(0, null);
+        mUserAdapter = new UserAdapterRV(0, null,this);
         //Sets the adapter for the Recycler view
         mUserList.setAdapter(mUserAdapter);
         //Kicks off the loader
@@ -77,7 +79,7 @@ public class MutualFragment extends Fragment implements LoaderManager.LoaderCall
     //When the loader is done loading the data
     @Override
     public void onLoadFinished(Loader<List<Users>> loader, List<Users> data) {
-        mUserAdapter = new UserAdapterRV(data.size(),data);
+        mUserAdapter = new UserAdapterRV(data.size(),data,this);
         mUserList.setAdapter(mUserAdapter);
         progressBar.setVisibility(View.INVISIBLE);
         if(data.size()!=0){
@@ -91,8 +93,15 @@ public class MutualFragment extends Fragment implements LoaderManager.LoaderCall
     @Override
     public void onLoaderReset(Loader<List<Users>> loader) {
         Log.e("loader Reset","===================================================");
-        mUserAdapter = new UserAdapterRV(0, null);
+        mUserAdapter = new UserAdapterRV(0, null,this);
         mUserList.setAdapter(mUserAdapter);
     }
 
+    @Override
+    public void onClick(Uri uri) {
+        Intent intent = new Intent (Intent.ACTION_VIEW,uri);
+        if(intent.resolveActivity(getActivity().getPackageManager())!=null){
+            startActivity(intent);
+        }
+    }
 }

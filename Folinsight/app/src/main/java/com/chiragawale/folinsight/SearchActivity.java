@@ -16,7 +16,7 @@ import com.chiragawale.folinsight.keys.GlobalVar;
 
 import java.util.List;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements UserAdapterRV.UserAdapterOnClickHandler {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class SearchActivity extends AppCompatActivity {
 
         List<Users> usersList = GlobalVar.userDao.getSearchResultList(query.toString());
 
-        UserAdapterRV mUserAdapter = new UserAdapterRV(usersList.size(),usersList);
+        UserAdapterRV mUserAdapter = new UserAdapterRV(usersList.size(),usersList,this);
 
         RelativeLayout emptyView = (RelativeLayout) findViewById(R.id.empty_view);
         //Progress bar
@@ -64,5 +64,13 @@ public class SearchActivity extends AppCompatActivity {
     public void onBackPressed() {
         finish();
         super.onBackPressed();
+    }
+    //Setting up the on click listeners
+    @Override
+    public void onClick(Uri uri) {
+        Intent intent = new Intent (Intent.ACTION_VIEW,uri);
+        if(intent.resolveActivity(getPackageManager())!=null){
+            startActivity(intent);
+        }
     }
 }

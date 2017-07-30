@@ -1,6 +1,8 @@
 package com.chiragawale.folinsight.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,16 +27,22 @@ public class UserAdapterRV extends RecyclerView.Adapter<UserAdapterRV.UserViewHo
     private int mNumberItems;
     private List<Users> mUserList;
     private Context context;
+    private UserAdapterOnClickHandler mOnClickHandler;
 
-    public UserAdapterRV(int numberOfItems, List<Users> userList) {
+    public UserAdapterRV(int numberOfItems, List<Users> userList,UserAdapterOnClickHandler userAdapterOnClickHandler) {
         mNumberItems = numberOfItems;
         viewHolderCount = 0;
         mUserList = userList;
+        mOnClickHandler = userAdapterOnClickHandler;
 
+    }
+    //Interface for handling click on individual items
+    public interface UserAdapterOnClickHandler{
+        void onClick(Uri uri);
     }
 
     @Override
-    public UserAdapterRV.UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public UserAdapterRV.UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         context = parent.getContext();
         int layoutIdForListItem = R.layout.list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -57,7 +65,7 @@ public class UserAdapterRV extends RecyclerView.Adapter<UserAdapterRV.UserViewHo
     }
 
 
-    public class UserViewHolder extends RecyclerView.ViewHolder {
+    public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         //Defining TextViews and ImageViews
         TextView follower_name;
         TextView follower_userName;
@@ -76,7 +84,10 @@ public class UserAdapterRV extends RecyclerView.Adapter<UserAdapterRV.UserViewHo
             follower_likes = (TextView) listItemView.findViewById(R.id.likes);
             follower_comments = (TextView) listItemView.findViewById(R.id.comments);
             follower_profile_picture = (ImageView) listItemView.findViewById(R.id.profile_picture);
+            listItemView.setOnClickListener(this);
+
         }
+
 
 
         void bind(int position) {
@@ -91,6 +102,12 @@ public class UserAdapterRV extends RecyclerView.Adapter<UserAdapterRV.UserViewHo
             //Loads images from Instagram site
             Glide.with(context).load(currentUser.getProfilePictureLink()).skipMemoryCache(true).override(144, 144).into(follower_profile_picture);
 
+        }
+        //Sets up the uri for on click events
+        @Override
+        public void onClick(View v) {
+            Uri uri = Uri.parse(mUserList.get(getAdapterPosition()).getProfileLink());
+            mOnClickHandler.onClick(uri);
         }
     }
 }
