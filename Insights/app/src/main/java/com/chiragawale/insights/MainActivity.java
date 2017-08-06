@@ -31,6 +31,11 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.List;
 
+/**
+ * Please register a new application in Instagram Developer site ang put your client id in keys/Keys_access.java file, also, this application
+ * would work best and would not require any changes if you put your Redirect URI as : "http://localhost/"
+ */
+
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Users>>  {
     ProgressBar progressBar;
     FloatingActionButton fab;

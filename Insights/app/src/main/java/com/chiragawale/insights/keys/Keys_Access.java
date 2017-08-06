@@ -6,7 +6,7 @@ package com.chiragawale.insights.keys;
 
 public class Keys_Access {
     private static String ACCESS_TOKEN = "";
-    private final static String REDIRECT_URI = "";
+    private final static String REDIRECT_URI = "http://localhost/";
     private final static String CLIENT_ID = "";
     private static final String BASE_FOR_REQUEST_URI = "https://api.instagram.com/oauth/authorize/";
 
