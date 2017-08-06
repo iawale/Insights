@@ -1,4 +1,5 @@
 # Insights
+***************This application was built for learning purpose only.****************
 Instagram follower insight app. (Client id and redirect URI not present in the code). A slightly different version of Folinsight.
 
 Before you build and run the application, please goto com.chiragawale.insights.keys.keys_access.java file and insert your Redirect Uri, and Client Id's. For use without any code changes please put redirect uri as "http://localhost/".
