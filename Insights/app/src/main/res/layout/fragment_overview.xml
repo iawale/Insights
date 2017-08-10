@@ -1,317 +1,440 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ScrollView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/people_heading"
-                style="@style/headings"
-                android:text="People" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/follower_label"
-                        style="@style/labels"
-                        android:layout_height="wrap_content"
-                        android:text="Follows" />
-
-                    <TextView
-                        android:id="@+id/follows_value"
-                        style="@style/values"
-                        android:layout_height="wrap_content"
-                        tools:text="1000" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/fans_label"
-                        style="@style/labels"
-                        android:layout_height="match_parent"
-                        android:text="Fans" />
-
-                    <TextView
-                        android:id="@+id/fans_value"
-                        style="@style/values"
-                        android:layout_height="wrap_content"
-                        tools:text="20" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/mutual"
-                        style="@style/labels"
-                        android:layout_height="wrap_content"
-                        android:text="Mutual" />
-
-                    <TextView
-                        android:id="@+id/mutual_value"
-                        style="@style/values"
-                        android:layout_height="match_parent"
-                        tools:text="10" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!--POSTS -->
-
-            <!--All-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                android:id="@+id/post_heading"
-                style="@style/headings"
-                android:text="Posts" />
-                <TextView
-                    android:id="@+id/total_posts"
-                    style="@style/headings"
-                    android:text="(N/A)" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <TextView
-                    android:id="@+id/total_subheading"
-                    style="@style/subheadings"
-                    android:text="All" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/total_likes_label"
-                        style="@style/labels"
-                        android:layout_height="wrap_content"
-                        android:text="Likes" />
-
-                    <TextView
-                        android:id="@+id/total_likes_value"
-                        style="@style/values"
-                        android:layout_height="wrap_content"
-                        tools:text="1000" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/total_comments_label"
-                        style="@style/labels"
-                        android:layout_height="wrap_content"
-                        android:text="Comments" />
-
-                    <TextView
-                        android:id="@+id/total_comments_value"
-                        style="@style/values"
-                        android:layout_height="match_parent"
-                        tools:text="10" />
-                </LinearLayout>
-                <!--Mutual-->
-                <TextView
-                    android:id="@+id/mutual_subheading"
-                    style="@style/subheadings"
-                    android:text="Mutual" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/mutual_likes_label"
-                        style="@style/labels"
-                        android:layout_height="match_parent"
-                        android:text="Likes" />
-
-                    <TextView
-                        android:id="@+id/mutual_likes_value"
-                        style="@style/values"
-                        android:layout_height="wrap_content"
-                        tools:text="20" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/mutual_comments_label"
-                        style="@style/labels"
-                        android:layout_height="wrap_content"
-                        android:text="Comments" />
-
-                    <TextView
-                        android:id="@+id/mutual_comments_value"
-                        style="@style/values"
-                        android:layout_height="match_parent"
-                        tools:text="10" />
-                </LinearLayout>
+        android:layout_height="wrap_content">
 
 
-                <!--Fans-->
-                <TextView
-                    android:id="@+id/fans_subheading"
-                    style="@style/subheadings"
-                    android:text="Fans" />
+        <TextView
+            android:id="@+id/people_heading"
+            style="@style/headings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="-2dp"
+            android:text="People"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/fans_likes_label"
-                        style="@style/labels"
-                        android:layout_height="match_parent"
-                        android:text="Likes" />
+        <TextView
+            android:id="@+id/follower_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="8dp"
+            android:text="Follows"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/people_heading" />
 
-                    <TextView
-                        android:id="@+id/fans_likes_value"
-                        style="@style/values"
-                        android:layout_height="wrap_content"
-                        tools:text="20" />
-                </LinearLayout>
+        <TextView
+            android:id="@+id/follows_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintLeft_toLeftOf="@+id/follower_label"
+            app:layout_constraintRight_toRightOf="@+id/follower_label"
+            app:layout_constraintTop_toBottomOf="@+id/follower_label"
+            tools:text="1000" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/fans_comments_label"
-                        style="@style/labels"
-                        android:layout_height="wrap_content"
-                        android:text="Comments" />
+        <TextView
+            android:id="@+id/fans_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Fans"
+            app:layout_constraintLeft_toRightOf="@+id/follower_label"
+            app:layout_constraintTop_toBottomOf="@+id/people_heading" />
 
-                    <TextView
-                        android:id="@+id/fans_comments_value"
-                        style="@style/values"
-                        android:layout_height="match_parent"
-                        tools:text="10" />
-                </LinearLayout>
+        <TextView
+            android:id="@+id/fans_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintLeft_toLeftOf="@+id/fans_label"
+            app:layout_constraintRight_toRightOf="@+id/fans_label"
+            app:layout_constraintTop_toBottomOf="@+id/fans_label"
+            tools:text="20" />
 
-                <!--People User Follows-->
-                <TextView
-                    android:id="@+id/follows_subheading"
-                    style="@style/subheadings"
-                    android:text="Follows" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        <TextView
+            android:id="@+id/mutual"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Mutual"
+            app:layout_constraintLeft_toRightOf="@+id/fans_label"
+            app:layout_constraintTop_toBottomOf="@+id/people_heading"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" />
 
-                    <TextView
-                        android:id="@+id/follows_likes_label"
-                        style="@style/labels"
-                        android:layout_height="match_parent"
-                        android:text="Likes" />
+        <TextView
+            android:id="@+id/mutual_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintLeft_toLeftOf="@+id/mutual"
+            app:layout_constraintRight_toRightOf="@+id/mutual"
+            app:layout_constraintTop_toBottomOf="@+id/mutual"
+            tools:text="10" />
 
-                    <TextView
-                        android:id="@+id/follows_likes_value"
-                        style="@style/values"
-                        android:layout_height="wrap_content"
-                        tools:text="20" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        <!--POSTS -->
 
-                    <TextView
-                        android:id="@+id/follows_comments_label"
-                        style="@style/labels"
-                        android:layout_height="wrap_content"
-                        android:text="Comments" />
+        <!--All-->
 
-                    <TextView
-                        android:id="@+id/follows_comments_value"
-                        style="@style/values"
-                        android:layout_height="match_parent"
-                        tools:text="10" />
-                </LinearLayout>
-                <!--Strangers-->
-                <TextView
-                    android:id="@+id/strangers_subheading"
-                    style="@style/subheadings"
-                    android:text="Strangers" />
+        <TextView
+            android:id="@+id/post_heading"
+            style="@style/headings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="13dp"
+            android:text="Posts"
+            app:layout_constraintHorizontal_bias="0.336"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fans_value" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        <TextView
+            android:id="@+id/total_posts"
+            style="@style/headings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="0dp"
+            android:text="(N/A)"
+            app:layout_constraintBottom_toTopOf="@+id/post_heading"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintLeft_toRightOf="@+id/post_heading"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_heading" />
 
-                    <TextView
-                        android:id="@+id/strangers_likes_label"
-                        style="@style/labels"
-                        android:layout_height="match_parent"
-                        android:text="Likes" />
 
-                    <TextView
-                        android:id="@+id/strangers_likes_value"
-                        style="@style/values"
-                        android:layout_height="wrap_content"
-                        tools:text="20" />
-                </LinearLayout>
+        <TextView
+            android:id="@+id/total_subheading"
+            style="@style/subheadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="153dp"
+            android:layout_marginTop="14dp"
+            android:text="All"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_heading" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/strangers_comments_label"
-                        style="@style/labels"
-                        android:layout_height="wrap_content"
-                        android:text="Comments" />
+        <TextView
+            android:id="@+id/total_likes_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="0dp"
+            android:text="Likes"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/total_subheading" />
 
-                    <TextView
-                        android:id="@+id/strangers_comments_value"
-                        style="@style/values"
-                        android:layout_height="match_parent"
-                        tools:text="10" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        <TextView
+            android:id="@+id/total_likes_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="-14dp"
+            app:layout_constraintLeft_toLeftOf="@+id/total_likes_label"
+            app:layout_constraintTop_toBottomOf="@+id/total_likes_label"
+            tools:text="1000" />
+
+
+        <TextView
+            android:id="@+id/total_comments_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="0dp"
+            android:text="Comments"
+            app:layout_constraintLeft_toRightOf="@+id/total_likes_label"
+            app:layout_constraintTop_toBottomOf="@+id/total_subheading" />
+
+        <TextView
+            android:id="@+id/total_comments_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="-1dp"
+            app:layout_constraintLeft_toLeftOf="@+id/total_comments_label"
+            app:layout_constraintTop_toBottomOf="@+id/total_comments_label"
+            tools:text="10" />
+
+        <!--Mutual-->
+        <TextView
+            android:id="@+id/mutual_subheading"
+            style="@style/subheadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="-13dp"
+            android:text="Mutual"
+            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/total_comments_value" />
+
+
+        <TextView
+            android:id="@+id/mutual_likes_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="-1dp"
+            android:text="Likes"
+            app:layout_constraintLeft_toLeftOf="@+id/total_likes_label"
+            app:layout_constraintTop_toBottomOf="@+id/mutual_subheading" />
+
+        <TextView
+            android:id="@+id/mutual_likes_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintLeft_toLeftOf="@+id/mutual_likes_label"
+            app:layout_constraintTop_toBottomOf="@+id/mutual_likes_label"
+            tools:text="20" />
+
+
+        <TextView
+            android:id="@+id/mutual_comments_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-7dp"
+            android:layout_marginTop="-1dp"
+            android:text="Comments"
+            app:layout_constraintLeft_toLeftOf="@+id/total_comments_label"
+            app:layout_constraintTop_toBottomOf="@+id/mutual_subheading" />
+
+        <TextView
+            android:id="@+id/mutual_comments_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintLeft_toLeftOf="@+id/mutual_comments_label"
+            app:layout_constraintTop_toBottomOf="@+id/mutual_comments_label"
+            tools:text="10" />
+
+
+        <!--Fans-->
+        <TextView
+            android:id="@+id/fans_subheading"
+            style="@style/subheadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="-7dp"
+            android:text="Fans"
+            app:layout_constraintHorizontal_bias="0.464"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mutual_comments_value" />
+
+
+        <TextView
+            android:id="@+id/fans_likes_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:text="Likes"
+            app:layout_constraintLeft_toLeftOf="@+id/mutual_likes_label"
+            app:layout_constraintTop_toBottomOf="@+id/fans_subheading" />
+
+        <TextView
+            android:id="@+id/fans_likes_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="-1dp"
+            app:layout_constraintLeft_toLeftOf="@+id/fans_likes_label"
+            app:layout_constraintTop_toBottomOf="@+id/fans_likes_label"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/fans_comments_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-7dp"
+            android:layout_marginTop="-1dp"
+            android:text="Comments"
+            app:layout_constraintLeft_toLeftOf="@+id/mutual_comments_label"
+            app:layout_constraintTop_toBottomOf="@+id/fans_subheading" />
+
+        <TextView
+            android:id="@+id/fans_comments_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="-1dp"
+            app:layout_constraintLeft_toLeftOf="@+id/fans_comments_label"
+            app:layout_constraintTop_toBottomOf="@+id/fans_comments_label"
+            tools:text="10" />
+
+        <!--People User Follows-->
+        <TextView
+            android:id="@+id/follows_subheading"
+            style="@style/subheadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="0dp"
+            android:text="Follows"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fans_comments_value" />
+
+
+        <TextView
+            android:id="@+id/follows_likes_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:text="Likes"
+            app:layout_constraintLeft_toLeftOf="@+id/fans_likes_label"
+            app:layout_constraintTop_toBottomOf="@+id/follows_subheading" />
+
+        <TextView
+            android:id="@+id/follows_likes_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintLeft_toLeftOf="@+id/follows_likes_label"
+            app:layout_constraintTop_toBottomOf="@+id/follows_likes_label"
+            tools:text="20" />
+
+
+        <TextView
+            android:id="@+id/follows_comments_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-7dp"
+            android:layout_marginTop="0dp"
+            android:text="Comments"
+            app:layout_constraintLeft_toLeftOf="@+id/fans_comments_label"
+            app:layout_constraintTop_toBottomOf="@+id/follows_subheading" />
+
+        <TextView
+            android:id="@+id/follows_comments_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintLeft_toLeftOf="@+id/follows_comments_label"
+            app:layout_constraintTop_toBottomOf="@+id/follows_comments_label"
+            tools:text="10" />
+
+        <!--Strangers-->
+        <TextView
+            android:id="@+id/strangers_subheading"
+            style="@style/subheadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="7dp"
+            android:text="Strangers"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/follows_comments_value"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/strangers_likes_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Likes"
+            tools:layout_editor_absoluteX="132dp"
+            tools:layout_editor_absoluteY="86dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/strangers_likes_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:text="20"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/strangers_comments_label"
+            style="@style/labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Comments"
+            app:layout_constraintTop_toBottomOf="@+id/strangers_subheading"
+            tools:layout_editor_absoluteX="233dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/strangers_comments_value"
+            style="@style/values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp"
+            tools:text="10"
+            android:visibility="gone"/>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
