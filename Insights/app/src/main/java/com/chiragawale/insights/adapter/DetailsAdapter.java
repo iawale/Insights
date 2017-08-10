@@ -57,12 +57,14 @@ public class DetailsAdapter extends ArrayAdapter<Details_ig> {
         //Getting the current item
         Details_ig currentItem = getItem(position);
         //Setting up the data for views
+
         heading_textView.setText("By " + getHeading(currentItem.getDataFor_code()));
         average_likes_text_view.setText(currentItem.getaLikesPer() + "");
         average_comments_text_view.setText(currentItem.getaCommentsPer() + "");
 
         /**
          * Setting up the graphs
+         *
          */
         GraphView graphView = (GraphView) listItemView.findViewById(R.id.graphView);
 
@@ -121,8 +123,12 @@ public class DetailsAdapter extends ArrayAdapter<Details_ig> {
         // as we use dates as labels, the human rounding to nice readable numbers
         // is not necessary
         graphView.getGridLabelRenderer().setHumanRounding(false);
-
-
+        //Sets visibility of Graph for Stranger to Gone to prevent Graph Errors
+        if(currentItem.getDataFor_code() == GlobalVar.STRANGER_CODE){
+            graphView.setVisibility(View.GONE);
+            TextView tv_history = (TextView) listItemView.findViewById(R.id.tv_history);
+            tv_history.setVisibility(View.GONE);
+        }
         return listItemView;
     }
 
@@ -163,7 +169,7 @@ public class DetailsAdapter extends ArrayAdapter<Details_ig> {
                     i++;
                 }
                 break;
-            default:
+            case 105:
                 for (Details_ig current : GlobalVar.dataDao.getStrangerDataList()) {
                     likesDataPointsList.add(new DataPoint(getDate(current.getDate()), current.getaLikesPer()));
                     i++;
@@ -211,7 +217,7 @@ public class DetailsAdapter extends ArrayAdapter<Details_ig> {
                     i++;
                 }
                 break;
-            default:
+            case 105:
                 for (Details_ig current : GlobalVar.dataDao.getStrangerDataList()) {
                     commentsDataPointsList.add(new DataPoint(getDate(current.getDate()), current.getaCommentsPer()));
                     i++;
