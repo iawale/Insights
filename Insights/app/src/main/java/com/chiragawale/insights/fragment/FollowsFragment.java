@@ -16,6 +16,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.chiragawale.insights.adapter.UserAdapterRV;
+import com.chiragawale.insights.databinding.FragmentOverviewBinding;
+import com.chiragawale.insights.databinding.ListItemBinding;
 import com.chiragawale.insights.keys.GlobalVar;
 import com.chiragawale.insights.R;
 import com.chiragawale.insights.entity.Users;
@@ -36,6 +38,7 @@ public class FollowsFragment extends Fragment implements LoaderManager.LoaderCal
     private ProgressBar progressBar;
     private RecyclerView mUserList;
     private RelativeLayout emptyView;
+
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.user_list, container, false);

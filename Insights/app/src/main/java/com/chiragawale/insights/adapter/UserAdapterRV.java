@@ -1,6 +1,7 @@
 package com.chiragawale.insights.adapter;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.chiragawale.insights.R;
+import com.chiragawale.insights.databinding.ListItemBinding;
 import com.chiragawale.insights.entity.Users;
 
 import java.util.List;
@@ -21,11 +23,11 @@ import java.util.List;
 
 public class UserAdapterRV extends RecyclerView.Adapter<UserAdapterRV.UserViewHolder> {
     private static int viewHolderCount;
-    private int mNumberItems;
-    private List<Users> mUserList;
+    private int mNumberItems;                               //For better functionality of recycler view
+    private List<Users> mUserList;                          //Holds list of users with their details
     private Context context;
-    private UserAdapterOnClickHandler mOnClickHandler;
-
+    private UserAdapterOnClickHandler mOnClickHandler;      //handles click on individual items
+    ListItemBinding mListItemBinding;           //For data binding
     public UserAdapterRV(int numberOfItems, List<Users> userList,UserAdapterOnClickHandler userAdapterOnClickHandler) {
         mNumberItems = numberOfItems;
         viewHolderCount = 0;
@@ -44,8 +46,8 @@ public class UserAdapterRV extends RecyclerView.Adapter<UserAdapterRV.UserViewHo
         int layoutIdForListItem = R.layout.list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         //Inflates a view to pass to viewholder,
-        View view = inflater.inflate(layoutIdForListItem, parent, false);
-        UserViewHolder userViewHolder = new UserViewHolder(view);
+        mListItemBinding = DataBindingUtil.inflate(inflater,layoutIdForListItem,parent,false);
+        UserViewHolder userViewHolder = new UserViewHolder(mListItemBinding.getRoot());
         //Keeps count of the viewholders
         viewHolderCount++;
         return userViewHolder;
@@ -63,24 +65,11 @@ public class UserAdapterRV extends RecyclerView.Adapter<UserAdapterRV.UserViewHo
 
 
     public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        //Defining TextViews and ImageViews
-        TextView follower_name;
-        TextView follower_userName;
-        TextView follower_track_date;
-        TextView follower_likes;
-        TextView follower_comments;
-        ImageView follower_profile_picture;
+
 
 
         public UserViewHolder(View listItemView) {
             super(listItemView);
-            //Getting the reference of the views to change their values
-            follower_name = (TextView) listItemView.findViewById(R.id.follower_name);
-            follower_userName = (TextView) listItemView.findViewById(R.id.follower_user_name);
-            follower_track_date = (TextView) listItemView.findViewById(R.id.follower_tracked_date);
-            follower_likes = (TextView) listItemView.findViewById(R.id.likes);
-            follower_comments = (TextView) listItemView.findViewById(R.id.comments);
-            follower_profile_picture = (ImageView) listItemView.findViewById(R.id.profile_picture);
             listItemView.setOnClickListener(this);
 
         }
@@ -91,13 +80,13 @@ public class UserAdapterRV extends RecyclerView.Adapter<UserAdapterRV.UserViewHo
             //Binds the data with the views referenced in the constructor
             Users currentUser = mUserList.get(position);
             //Setting the texts of their respective textViews according to the data received from the List
-            follower_name.setText(currentUser.getFullName());
-            follower_userName.setText(currentUser.getUserName());
+            mListItemBinding.followerName.setText(currentUser.getFullName());
+            mListItemBinding.followerUserName.setText(currentUser.getUserName());
             // follower_track_date.setText(currentUser.getDate_trackedFrom());
-            follower_comments.setText("Comments : " + String.valueOf(currentUser.getCommentsPosted()));
-            follower_likes.setText("Likes : " + String.valueOf(currentUser.getLikesPosted()));
+            mListItemBinding.comments.setText("Comments : " + String.valueOf(currentUser.getCommentsPosted()));
+            mListItemBinding.likes.setText("Likes : " + String.valueOf(currentUser.getLikesPosted()));
             //Loads images from Instagram site
-            Glide.with(context).load(currentUser.getProfilePictureLink()).skipMemoryCache(true).override(144, 144).into(follower_profile_picture);
+            Glide.with(context).load(currentUser.getProfilePictureLink()).skipMemoryCache(true).override(144, 144).into(mListItemBinding.profilePicture);
 
         }
         //Sets up the uri for on click events
